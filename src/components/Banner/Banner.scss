@@ -1,0 +1,36 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+        width: 217px;
+        height: 344px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            list-style: none;
+            border-right: 0.5px solid black;
+
+            li{
+                color: rgb(0, 0, 0);
+                font-family: Poppins;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+    }
+    .carousel {
+        width: 953px;
+        height: 344px;
+
+        img {
+            width: 892px;
+            height: 100%;
+        }
+    }
+}
