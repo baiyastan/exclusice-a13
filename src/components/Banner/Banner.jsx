@@ -1,34 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect} from 'react'
 import "./Banner.scss"
 import Carousel from 'react-bootstrap/Carousel';
 import mainImage from "../../assets/image/main-image.png"
-import { apiClient } from '../../axios/apiClient';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCategoryThunk } from '../../redux/category/categorySlice';
 
 function Banner() {
-    const [list, setList] = useState([])
+    const {category, loading, error} = useSelector((state) => state.category)
+    const dispatch = useDispatch()
 
-    async function getCategory() {
-        try {
-            const res = await apiClient.get('/products/category-list')
-            setList(res.data)
-
-            console.log(res);
-            
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
-
+ 
     useEffect(() => {
-        getCategory()
-    }, [])
+      dispatch(getCategoryThunk())
+    }, [dispatch])
+
     return (
         <div className='banner container'>
             <div className='sidebar'>
                 <ul>
                    {
-                    list.map((item, index) => (
+                    category.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))
                    }

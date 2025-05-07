@@ -1,0 +1,99 @@
+.pro{
+    width: 270px;
+height: 250px;
+border-radius: 4px;
+display: flex;
+position: relative;
+margin-top: 40px;
+padding: 49px;
+background: rgb(245, 245, 245);
+img{
+    width: 172px;
+height: 152px;
+}
+}
+.price{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 270px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    p{
+        /* Title/12PX Regular */
+    color: rgb(250, 250, 250);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 26px;
+    border-radius: 4px;
+    background: rgb(219, 68, 68);
+    }
+    .save{
+        display: flex;
+        flex-direction: column;
+        width: 34px;
+        height: 34px;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255, 255, 255);
+        border-radius: 50%;
+        img{
+            width: 19.23px;
+            height: 14px;
+        }
+    }
+}
+.lol{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.name{
+    width: 270px;
+    height: 100px;
+    background-color: #fff;
+}
+.descrip{
+    margin-top: 16px;
+    height: 84px;
+    width: 201px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    img{
+        width: 100px;
+height: 20px;
+    }
+}
+.pol{
+    display: flex;
+    gap: 12px;
+    p{
+        /* Title/16PX Medium */
+        color: rgb(219, 68, 68);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    span{
+        color: gray;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+        text-decoration-line: line-through;
+    }
+}
