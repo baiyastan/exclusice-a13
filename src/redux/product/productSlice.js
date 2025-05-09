@@ -5,7 +5,12 @@ export const getProductFetch = createAsyncThunk(
     "getProduct/fetch",
     async (category, thunkAPI) => {
         try {
-            const res = await apiClient.get(`/products`)
+            let url = "/products";
+
+            if(category) {
+                url = `/products/category/${category}`
+            }
+            const res = await apiClient.get(url)
             return res.data.products
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message || "not found")
@@ -19,8 +24,13 @@ const productSlise = createSlice({
         product:[],
         loading: false,
         error: null,
+        category: ""
     },
-    reducers:{},
+    reducers:{
+        setCategory: (state, action) => {
+            state.category = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(getProductFetch.pending, (state) => {
@@ -39,4 +49,5 @@ const productSlise = createSlice({
 
 })
 
+export const {setCategory} = productSlise.actions;
 export default productSlise.reducer

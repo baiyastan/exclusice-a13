@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import mainImage from "../../assets/image/main-image.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategoryThunk } from '../../redux/category/categorySlice';
+import { setCategory } from '../../redux/product/productSlice';
 
 function Banner() {
     const {category, loading, error} = useSelector((state) => state.category)
@@ -14,13 +15,17 @@ function Banner() {
       dispatch(getCategoryThunk())
     }, [dispatch])
 
+    function sendItem (a) {
+        dispatch(setCategory(a))
+    }
+
     return (
         <div className='banner container'>
             <div className='sidebar'>
                 <ul>
                    {
                     category.map((item, index) => (
-                        <li key={index}>{item}</li>
+                        <li onClick={() => sendItem(item)} key={index}>{item}</li>
                     ))
                    }
                 </ul>
