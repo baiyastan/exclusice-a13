@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProductFetch } from '../redux/product/productSlice'
 
 function Home() {
-  const {product, loading, error, category} = useSelector((state) => state.products)
+  const {product, loading, error, category, search} = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getProductFetch(category))
-  }, [dispatch, category])
+    dispatch(getProductFetch({category, search}))
+  }, [dispatch, category, search])
 
   return (
     <div>

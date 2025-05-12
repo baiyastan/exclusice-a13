@@ -1,11 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Header.scss"
 import { Link } from 'react-router-dom'
 import like from "../../assets/svg/like.svg"
 import basket from "../../assets/svg/basket.svg"
 import lupa from "../../assets/svg/lupa.svg"
+import { setSearch } from '../../redux/product/productSlice'
+import { useDispatch } from 'react-redux'
 
 function Header() {
+  const [text, setText] = useState("")
+  const dispatch = useDispatch()
+
+  function handleKeyDown(e) {
+    if(e.keyCode == 13) {
+      dispatch(setSearch(text))
+      setText("")
+    }
+  }
+
   return (
     <div className='header'>
       <div className="header-top">
@@ -32,13 +44,19 @@ function Header() {
         </div>
         <div className="main-search">
           <div className='lupa'>
-            <input type="text"
+            <input 
+              value={text} 
+              onChange={(e) => setText(e.target.value)} 
+              type="text"
               placeholder='What are you looking for?'
+              onKeyDown={handleKeyDown}
             />
             <img src={lupa} alt="" />
           </div>
           <div className="fot">
-            <img src={like} alt="" />
+            <Link to="/wishlist">
+              <img src={like} alt="" />
+            </Link>
             <img src={basket} alt="" />
           </div>
         </div>

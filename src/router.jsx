@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
+import Wishlist from "./pages/Wishlist";
 
 const myRouter = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const myRouter = createBrowserRouter([
                 path: "register",
                 element: <Register/>
             },
+            {
+                path: "wishlist",
+                element: <Wishlist/>
+            }
         ]
     }
 ])

@@ -24,7 +24,7 @@ function Product({pro}) {
       </div>
       <div className="name">
         <div className="descrip">
-          <h4>HAVIT HV-G92 Gamepad</h4>
+          <h4>{pro.title}</h4>
           <div className='pol'>
             <p>$120</p>
             <span>$160</span>
