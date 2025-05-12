@@ -6,10 +6,12 @@ import basket from "../../assets/svg/basket.svg"
 import lupa from "../../assets/svg/lupa.svg"
 import { setSearch } from '../../redux/product/productSlice'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 function Header() {
   const [text, setText] = useState("")
   const dispatch = useDispatch()
+  const {t} = useTranslation()
 
   function handleKeyDown(e) {
     if(e.keyCode == 13) {
@@ -33,7 +35,7 @@ function Header() {
         </div>
       </div>
       <div className="header-main container">
-        <h2>Exclusive</h2>
+        <h2>{t("logo")}</h2>
         <div className="main-link">
           <ul>
             <Link>Home</Link>
