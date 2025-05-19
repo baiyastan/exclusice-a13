@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import Wishlist from "./pages/Wishlist";
+import LogIn from "./pages/Login";
 
 const myRouter = createBrowserRouter([
     {
@@ -30,7 +31,11 @@ const myRouter = createBrowserRouter([
             {
                 path: "wishlist",
                 element: <Wishlist/>
-            }
+            },
+            {
+                path: "login",
+                element: <LogIn/>
+            },
         ]
     }
 ])

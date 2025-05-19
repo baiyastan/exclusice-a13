@@ -11,13 +11,18 @@ import { useTranslation } from 'react-i18next'
 function Header() {
   const [text, setText] = useState("")
   const dispatch = useDispatch()
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
 
   function handleKeyDown(e) {
     if(e.keyCode == 13) {
       dispatch(setSearch(text))
       setText("")
     }
+  }
+
+  function handleChangeLng (e) {
+    let lng = e.target.value;
+    i18n.changeLanguage(lng)
   }
 
   return (
@@ -27,7 +32,7 @@ function Header() {
           <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
             <Link>ShopNow</Link>
           </p>
-          <select>
+          <select onChange={handleChangeLng}>
             <option value="kg">KGZ</option>
             <option value="en">ENG</option>
             <option value="ru">RUS</option>
@@ -38,10 +43,10 @@ function Header() {
         <h2>{t("logo")}</h2>
         <div className="main-link">
           <ul>
-            <Link>Home</Link>
+            <Link to="/">{t("home")}</Link>
             <Link>Contact</Link>
             <Link>About</Link>
-            <Link>Sign Up</Link>
+            <Link to="/register">Sign Up</Link>
           </ul>
         </div>
         <div className="main-search">

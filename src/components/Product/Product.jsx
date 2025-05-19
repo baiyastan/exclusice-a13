@@ -4,8 +4,13 @@ import "./Product.scss"
 import eye from "../../assets/svg/eye.svg"
 import star from "../../assets/svg/star.svg"
 import like from "../../assets/svg/like.svg"
+import { useDispatch } from 'react-redux'
+import { addWish } from '../../redux/wish/wishSlice'
 
 function Product({pro}) {
+
+  const dispatch = useDispatch()
+
   return (
     <div>
       <div className='pro'>
@@ -14,7 +19,7 @@ function Product({pro}) {
           <p>-40%</p>
           <div className="lol">
             <div className="save">
-              <img src={like} alt="" />
+              <img onClick={() => dispatch(addWish(pro))} src={like} alt="" />
             </div>
             <div className="save">
               <img src={eye} alt="" />
